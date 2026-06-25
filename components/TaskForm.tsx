@@ -62,7 +62,7 @@ export default function TaskForm({ onSave, editing, onCancel }: Props) {
         <textarea value={description} onChange={e=>setDescription(e.target.value)} className="mt-1 w-full border rounded p-2" />
       </div>
 
-      <div className="grid grid-cols-2 gap-2 mb-2">
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-2">
         <div>
           <label className="block text-sm font-medium">Due Date</label>
           <input type="date" value={dueDate} onChange={e=>setDueDate(e.target.value)} className="mt-1 w-full border rounded p-2" />
@@ -77,9 +77,9 @@ export default function TaskForm({ onSave, editing, onCancel }: Props) {
         </div>
       </div>
 
-      <div className="flex gap-2">
-        <button className="bg-blue-600 text-white px-3 py-1 rounded">{editing ? 'Update' : 'Add'}</button>
-        {editing && <button type="button" onClick={onCancel} className="px-3 py-1 rounded border">Cancel</button>}
+      <div className="flex flex-col sm:flex-row gap-2">
+        <button className="w-full sm:w-auto bg-blue-600 text-white px-3 py-2 rounded">{editing ? 'Update' : 'Add'}</button>
+        {editing && <button type="button" onClick={onCancel} className="w-full sm:w-auto px-3 py-2 rounded border">Cancel</button>}
       </div>
     </form>
   )

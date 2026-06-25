@@ -60,13 +60,15 @@ export default function Dashboard() {
 
   return (
     <main className="min-h-screen p-6">
-      <div className="max-w-5xl mx-auto">
-        <header className="flex items-center justify-between mb-6">
-          <h2 className="text-2xl font-bold">Dashboard</h2>
-          <div className="text-sm text-gray-600">Summary of your tasks</div>
+      <div className="max-w-6xl mx-auto">
+        <header className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between mb-6">
+          <div>
+            <h2 className="text-2xl sm:text-3xl font-bold">Dashboard</h2>
+            <p className="text-sm text-gray-600 mt-1">Summary of your tasks</p>
+          </div>
         </header>
 
-        <section className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+        <section className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 mb-6">
           <div className="bg-white p-4 rounded shadow">
             <div className="text-sm text-gray-500">Total Tasks</div>
             <div className="text-xl font-semibold">{total}</div>
@@ -91,12 +93,10 @@ export default function Dashboard() {
           </div>
 
           <div className="md:col-span-2">
-            <div className="mb-4 flex items-center justify-between">
-              <div className="flex gap-2">
-                <button onClick={()=>setFilter('All')} className={`px-3 py-1 rounded ${filter==='All' ? 'bg-blue-600 text-white' : 'bg-white'}`}>All</button>
-                <button onClick={()=>setFilter('Pending')} className={`px-3 py-1 rounded ${filter==='Pending' ? 'bg-blue-600 text-white' : 'bg-white'}`}>Pending</button>
-                <button onClick={()=>setFilter('Completed')} className={`px-3 py-1 rounded ${filter==='Completed' ? 'bg-blue-600 text-white' : 'bg-white'}`}>Completed</button>
-              </div>
+            <div className="mb-4 flex flex-wrap gap-2 items-center">
+              <button onClick={()=>setFilter('All')} className={`px-3 py-2 rounded-full transition ${filter==='All' ? 'bg-blue-600 text-white' : 'bg-white border border-slate-200 hover:bg-slate-50'}`}>All</button>
+              <button onClick={()=>setFilter('Pending')} className={`px-3 py-2 rounded-full transition ${filter==='Pending' ? 'bg-blue-600 text-white' : 'bg-white border border-slate-200 hover:bg-slate-50'}`}>Pending</button>
+              <button onClick={()=>setFilter('Completed')} className={`px-3 py-2 rounded-full transition ${filter==='Completed' ? 'bg-blue-600 text-white' : 'bg-white border border-slate-200 hover:bg-slate-50'}`}>Completed</button>
             </div>
 
             <TaskList tasks={visible} onToggle={toggle} onEdit={(t)=>setEditing(t)} onDelete={remove} />
