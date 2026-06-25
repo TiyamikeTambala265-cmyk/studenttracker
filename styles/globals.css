@@ -2,10 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@600;700&display=swap');
+
 html, body, #__next {
   height: 100%;
 }
 
 body {
-  @apply bg-gray-50 text-gray-800;
+  @apply bg-gradient-to-br from-slate-50 to-slate-100 text-slate-900 font-sans;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Outfit', 'Inter', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+/* Color Tokens */
+:root {
+  --color-primary: #4f46e5;
+  --color-primary-light: #eef2ff;
+  --color-primary-dark: #3730a3;
+  --color-success: #10b981;
+  --color-warning: #f59e0b;
+  --color-error: #ef4444;
+  --color-background: #f8fafc;
+  --color-surface: #ffffff;
+  --color-border: #e2e8f0;
+  --color-text-primary: #0f172a;
+  --color-text-secondary: #64748b;
+  --color-text-tertiary: #94a3b8;
+}
+
+/* Smooth transitions */
+@layer components {
+  .transition-smooth {
+    @apply transition-all duration-200 ease-out;
+  }
+  
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2;
+  }
+
+  /* Input styles */
+  input[type="text"],
+  input[type="date"],
+  textarea,
+  select {
+    @apply bg-white border border-slate-200 rounded-lg px-4 py-2.5 text-slate-900 transition-smooth focus-ring;
+  }
+
+  input[type="text"]:hover,
+  input[type="date"]:hover,
+  textarea:hover,
+  select:hover {
+    @apply border-slate-300;
+  }
+
+  textarea {
+    @apply resize-none;
+  }
 }
